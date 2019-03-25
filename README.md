@@ -43,7 +43,7 @@ Responder container uses `python:latest` (more info at `https://hub.docker.com/_
 ## Backend/Responder related things
 
   > Question: Can i change the port where Responder runs? If `true`, how?
-  - Answer: Yes you can. Just change `PORT` environment var in `docker-compose.yml` 
+  - Answer: Yes you can. Just change `PORT` environment var (at `.env` file) or in `docker-compose.yml` 
 
   > Question: How can i disable/enable **code hot reloading**?
   - Answer: To disable it, change `.env` file, and set `DEBUG` var to an empty string (`DEBUG=""`). To enable it, set `DEBUG` value to anything different to an empty string. 
