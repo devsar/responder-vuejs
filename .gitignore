@@ -1,5 +1,6 @@
 *.pyc
 .vscode
+.mypy_cache/
 src/frontend/node_modules
 src/frontend/dist
 src/frontend/.config/
