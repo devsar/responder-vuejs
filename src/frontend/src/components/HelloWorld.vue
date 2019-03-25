@@ -8,9 +8,9 @@
 
     <h2>API Info</h2>
     <div>
-      <p>{{ apiInfo.running }}</p>
-      <p>{{ apiInfo.version }}</p>
-      <p>{{ apiInfo.python }}</p>
+      <p>Running: {{ apiInfo.running }}</p>
+      <p>Version: {{ apiInfo.version }}</p>
+      <p>Python interpreter: {{ apiInfo.python }}</p>
     </div>
 
     <h2>Essential Links</h2>
