@@ -42,6 +42,9 @@ Responder container uses `python:latest` (more info at `https://hub.docker.com/_
 
 ## Backend/Responder related things
 
+  > Question: How can i test that the backend is working? 
+  - Answer: Just go to `http://localhost:8000/ping`, you should get back a json with info about the framework/version running and the Python version being used in the container.
+
   > Question: Can i change the port where Responder runs? If `true`, how?
   - Answer: Yes you can. Just change `PORT` environment var (at `.env` file) or in `docker-compose.yml` 
 
