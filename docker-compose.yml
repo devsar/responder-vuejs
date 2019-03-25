@@ -5,13 +5,14 @@ services:
     user: "${UID}:${GID}"
     build:
       context: .
-      dockerfile: dockerfiles/backend
+      dockerfile: dockerfiles/responder
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     volumes:
       - ./src/backend:/opt/backend
     environment:
       - PORT=${BACKEND_PORT}
+      - DEBUG=${DEBUG}
       - PYTHONPATH=/opt/backend
 
 volumes:
