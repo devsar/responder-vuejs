@@ -1,0 +1,18 @@
+FROM node:lts
+
+RUN apt-get -yq update \
+  && apt-get install -yq git
+
+WORKDIR /opt/frontend
+
+EXPOSE 8080
+
+COPY entrypoints/vuejs.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
+COPY src/frontend/package*.json ./
+
+USER ${UID}:${GID}
+
+CMD ["npm", "run", "dev"]

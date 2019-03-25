@@ -1,0 +1,18 @@
+FROM python:latest
+
+RUN apt-get update \
+    && apt-get install -yq --no-install-recommends \
+        postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# TODO: Give UID using env vars
+RUN useradd -b /opt -ms /bin/bash -u 1000 backend
+
+WORKDIR /opt/backend
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+COPY ./src/backend /opt/backend
+
+EXPOSE 8000
+CMD ["python", "api.py"]
