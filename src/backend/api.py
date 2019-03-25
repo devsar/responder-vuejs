@@ -1,6 +1,7 @@
 import responder
 import uvicorn
 import typing
+import sys
 import os
 
 api = responder.API()
@@ -8,6 +9,15 @@ api = responder.API()
 @api.route("/{greeting}")
 async def greet_world(req, resp, *, greeting):
     resp.text = f"{greeting}, world!"
+
+@api.route("/ping")
+async def pong(req, resp):
+    response = {
+        'running': 'Responder HTTP Service Framework',
+        'version': responder.__version__.__version__,
+        'python': sys.version
+    }
+    resp.media = response
 
 if __name__ == '__main__':
     debug = os.getenv('DEBUG')
