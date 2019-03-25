@@ -49,7 +49,7 @@ Responder container uses `python:latest` (more info at `https://hub.docker.com/_
   - Answer: Yes you can. Just change `PORT` environment var (at `.env` file) or in `docker-compose.yml` 
 
   > Question: How can i disable/enable **code hot reloading**?
-  - Answer: To disable it, change `.env` file, and set `DEBUG` var to an empty string (`DEBUG=""`). To enable it, set `DEBUG` value to anything different to an empty string. 
+  - Answer: To disable it, on `docker-compose.yml` file set `DEBUG` var to an empty string (`DEBUG=""`). To enable it, set `DEBUG` value to `1` (`DEBUG=1`). Dont forget to stop (`ctrl+c`) and start again all containers (`docker-compose up`).
 
 ## Deploy API/Web service on Prod
 Thanks to [Responder](https://python-responder.org/en/latest/) and [Uvicorn](https://www.uvicorn.org/) the backend is ready to be deployed on prod (no need to setup `ningx`, or anything else). This gets you a ASGI app, with a production static files server (WhiteNoise) pre-installed, jinja2 templating (without additional imports), and a production webserver based on uvloop, serving up requests with gzip compression automatically.
