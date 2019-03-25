@@ -14,6 +14,21 @@ services:
       - PORT=${BACKEND_PORT}
       - DEBUG=${DEBUG}
       - PYTHONPATH=/opt/backend
-
-volumes:
-  pgdata:
+  frontend:
+    user: "${UID}:${GID}"
+    build:
+      context: .
+      dockerfile: dockerfiles/vuejs
+    entrypoint: /entrypoint.sh
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT}:8080"
+    volumes:
+      - ./src/frontend:/opt/frontend
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - CHOKIDAR_USEPOLLING=true
+      - API_HOST=${BACKEND_RUNNING_ON_HOST}
+      - API_PORT=${BACKEND_RUNNING_ON_PORT}
