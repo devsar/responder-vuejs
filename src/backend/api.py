@@ -33,7 +33,7 @@ async def pong(req, resp):
     resp.media = response
 
 if __name__ == '__main__':
-    debug = os.getenv('DEBUG')
+    debug = os.getenv('DEBUG') == "1"
     if debug:
         port: Optional[int] = int(cast(int, os.getenv('PORT'))) or 8000
         print('-'*80 + '\nWarning: Debug is enabled\nCode Hot Reload enabled\n' + '-'*80)
