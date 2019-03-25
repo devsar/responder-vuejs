@@ -12,7 +12,7 @@ services:
       - ./src/backend:/opt/backend
     environment:
       - PORT=${BACKEND_PORT}
-      - DEBUG=${DEBUG}
+      - DEBUG=1
       - PYTHONPATH=/opt/backend
   frontend:
     user: "${UID}:${GID}"
