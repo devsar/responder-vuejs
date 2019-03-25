@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  backend:
+    user: "${UID}:${GID}"
+    build:
+      context: .
+      dockerfile: dockerfiles/backend
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    volumes:
+      - ./src/backend:/opt/backend
+    environment:
+      - PORT=${BACKEND_PORT}
+      - PYTHONPATH=/opt/backend
+
+volumes:
+  pgdata:
