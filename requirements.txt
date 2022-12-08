@@ -5,7 +5,7 @@ apispec==1.1.0
 apistar==0.7.1
 asgiref==3.0.0
 async-timeout==3.0.1
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 click==7.0
 docopt==0.6.2
